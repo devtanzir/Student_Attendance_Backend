@@ -3,7 +3,13 @@ import bcrypt from "bcrypt";
 import Jwt from "jsonwebtoken";
 import { findUserByProperty, createNewUser } from "./user.js";
 
-const resisterService = async ({ name, email, password }) => {
+const resisterService = async ({
+  name,
+  email,
+  password,
+  roles,
+  accountStatus,
+}) => {
   let user = await findUserByProperty("email", email);
 
   if (user) throw error("user already exist", 400);
@@ -12,7 +18,7 @@ const resisterService = async ({ name, email, password }) => {
 
   const hash = await bcrypt.hash(password, salt);
 
-  return createNewUser({ name, email, password: hash });
+  return createNewUser({ name, email, password: hash, roles, accountStatus });
 };
 
 const loginService = async ({ email, password }) => {
