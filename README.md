@@ -1,8 +1,8 @@
-### student attendance system 
+# student attendance system 
 
 - This is a practice project for learning backend
 
-# Features
+### Features
 
 - authentication user system
 
