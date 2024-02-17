@@ -1,14 +1,8 @@
-import { User } from "../models/User.js";
 import { resisterService } from "../service/auth.js";
-import {
-  createNewUser,
-  findUserByProperty,
-  findUsers,
-  updateUser,
-} from "../service/user.js";
+import { findUserByProperty, findUsers, updateUser } from "../service/user.js";
 import error from "../utils/error.js";
 
-const getUsers = async (req, res, next) => {
+const getUsers = async (_req, res, next) => {
   /**
    * TODO: filter, sort, pagination, select
    */

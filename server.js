@@ -30,7 +30,7 @@ app.get("/", (_req, res) => {
   res.json(obj);
 });
 
-app.use((err, req, res, next) => {
+app.use((err, _req, res, _next) => {
   console.log(err);
   const message = err.message ? err.message : "server error Occurred";
   const status = err.status ? err.status : 500;

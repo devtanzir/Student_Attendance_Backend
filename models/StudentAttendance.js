@@ -1,17 +1,22 @@
 import { Schema, model } from "mongoose";
 
-const studentAttendanceSchema = new Schema({
-  createdAt: Date,
-  user: {
-    type: Schema.Types.ObjectId,
-    ref: "User",
+const studentAttendanceSchema = new Schema(
+  {
+    user: {
+      type: Schema.Types.ObjectId,
+      ref: "User",
+      required: true,
+    },
+    adminAttendance: {
+      type: Schema.Types.ObjectId,
+      ref: "adminAttendance",
+      required: true,
+    },
   },
-  adminAttendance: {
-    type: Schema.Types.ObjectId,
-    ref: "adminAttendance",
-  },
-});
+  { timestamps: true }
+);
 
-const studentAttendance = model("studentAttendance", studentAttendanceSchema);
-
-module.exports = studentAttendance;
+export const studentAttendance = model(
+  "studentAttendance",
+  studentAttendanceSchema
+);
