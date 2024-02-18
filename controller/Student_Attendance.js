@@ -7,12 +7,6 @@ import { addMinutes, isAfter } from "date-fns";
 const getAttendance = async (req, res, next) => {
   const { id } = req.params;
   try {
-    /**
-     * step 1 - Find admin attendance by id
-     * step 2 - Check if it is running or not
-     * step 3 - Check already or not
-     * step 4 - Register entry
-     */
     const adminAttendance = await studentFindById(id);
     if (!adminAttendance) {
       throw error("Invalid Attendance ", 400);
