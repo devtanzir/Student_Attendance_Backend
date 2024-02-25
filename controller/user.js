@@ -95,7 +95,6 @@ const deleteUserById = async (req, res, next) => {
   try {
     const user = await findUserByProperty("_id", userId);
 
-    console.log(user);
 
     if (!user) {
       throw error("User not Found", 404);
