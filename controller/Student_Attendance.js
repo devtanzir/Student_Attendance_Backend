@@ -12,7 +12,7 @@ const getAttendance = async (req, res, next) => {
       throw error("Invalid Attendance ", 400);
     }
     if (adminAttendance.status === "COMPLETED") {
-      throw error("Attendance Already Complated");
+      throw error("Attendance Already Completed");
     }
     let attendance = await studentAttendance.findOne({
       adminAttendance: id,
